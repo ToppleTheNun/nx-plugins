@@ -1,0 +1,12 @@
+{
+  "$schema": "http://json-schema.org/schema",
+  "name": "nx-plugin-postcss",
+  "version": "0.0.1",
+  "generators": {
+    "nx-plugin-postcss": {
+      "factory": "./src/generators/nx-plugin-postcss/generator",
+      "schema": "./src/generators/nx-plugin-postcss/schema.json",
+      "description": "nx-plugin-postcss generator"
+    }
+  }
+}
