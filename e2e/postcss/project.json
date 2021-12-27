@@ -1,0 +1,16 @@
+{
+  "root": "e2e/postcss",
+  "projectType": "application",
+  "sourceRoot": "e2e/postcss/src",
+  "targets": {
+    "e2e": {
+      "executor": "@nrwl/nx-plugin:e2e",
+      "options": {
+        "target": "postcss:build",
+        "jestConfig": "e2e/postcss/jest.config.js"
+      }
+    }
+  },
+  "tags": [],
+  "implicitDependencies": ["postcss"]
+}

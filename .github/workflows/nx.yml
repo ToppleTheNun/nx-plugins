@@ -20,8 +20,10 @@ jobs:
         with:
           node-version: "14"
       - uses: c-hive/gha-yarn-cache@v2
-      - run: npx nx affected --target=build --parallel --max-parallel=3
-      - run: npx nx affected --target=test --parallel --max-parallel=2
+      - run: yarn install --frozen-lockfile
+      - run: yarn affected:build --parallel --max-parallel=3
+      - run: yarn affected:test --parallel --max-parallel=2
+      - run: yarn affected:e2e
   pr:
     runs-on: ubuntu-latest
     if: ${{ github.event_name == 'pull_request' }}
@@ -36,5 +38,8 @@ jobs:
         with:
           node-version: "14"
       - uses: c-hive/gha-yarn-cache@v2
-      - run: npx nx affected --target=build --parallel --max-parallel=3
-      - run: npx nx affected --target=test --parallel --max-parallel=2
+      - run: yarn install --frozen-lockfile
+      - run: yarn dlx commitlint --from ${{ env.NX_BASE }} --to ${{ env.NX_HEAD }}
+      - run: yarn affected:build --parallel --max-parallel=3
+      - run: yarn affected:test --parallel --max-parallel=2
+      - run: yarn affected:e2e

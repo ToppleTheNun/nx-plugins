@@ -1,0 +1,20 @@
+{
+  "$schema": "http://json-schema.org/schema",
+  "name": "nx-plugin-postcss",
+  "version": "0.0.1",
+  "generators": {
+    "init": {
+      "factory": "./src/generators/init/init",
+      "schema": "./src/generators/init/schema.json",
+      "description": "Add PostCSS configuration to the workspace (add dependencies)",
+      "aliases": ["ng-add"],
+      "hidden": true
+    },
+    "configuration": {
+      "factory": "./src/generators/configuration/configuration",
+      "schema": "./src/generators/configuration/schema.json",
+      "description": "Add PostCSS configuration to a UI library or an application",
+      "hidden": false
+    }
+  }
+}

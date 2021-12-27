@@ -15,9 +15,8 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "nx-plugins/nx-plugin-postcss": [
-        "packages/nx-plugin-postcss/src/index.ts"
-      ]
+      "@nrwl/e2e/utils": ["./e2e/utils"],
+      "@topplethenun/nx-plugin-postcss": ["./packages/postcss"]
     }
   },
   "exclude": ["node_modules", "tmp"]

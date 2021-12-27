@@ -1,7 +1,8 @@
 {
   "version": 2,
   "projects": {
-    "nx-plugin-postcss": "packages/nx-plugin-postcss",
-    "nx-plugin-postcss-e2e": "e2e\\nx-plugin-postcss-e2e"
+    "e2e-postcss": "e2e/postcss",
+    "e2e-utils": "e2e/utils",
+    "postcss": "packages/postcss"
   }
 }

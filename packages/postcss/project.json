@@ -1,0 +1,62 @@
+{
+  "root": "packages/postcss",
+  "sourceRoot": "packages/postcss/src",
+  "projectType": "library",
+  "targets": {
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["packages/postcss/**/*.ts"]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/packages/postcss"],
+      "options": {
+        "jestConfig": "packages/postcss/jest.config.js",
+        "passWithNoTests": true
+      }
+    },
+    "build": {
+      "executor": "@nrwl/node:package",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/packages/postcss",
+        "tsConfig": "packages/postcss/tsconfig.lib.json",
+        "packageJson": "packages/postcss/package.json",
+        "main": "packages/postcss/src/index.ts",
+        "assets": [
+          "packages/postcss/*.md",
+          {
+            "input": "./packages/postcss/src",
+            "glob": "**/!(*.ts)",
+            "output": "./src"
+          },
+          {
+            "input": "./packages/postcss/src",
+            "glob": "**/*.d.ts",
+            "output": "./src"
+          },
+          {
+            "input": "./packages/postcss",
+            "glob": "generators.json",
+            "output": "."
+          },
+          {
+            "input": "./packages/postcss",
+            "glob": "executors.json",
+            "output": "."
+          }
+        ]
+      }
+    },
+    "version": {
+      "executor": "@jscutlery/semver:version",
+      "options": {
+        "commitMessageFormat": "chore(${projectName}): release version ${version}"
+      }
+    }
+  },
+  "tags": []
+}
