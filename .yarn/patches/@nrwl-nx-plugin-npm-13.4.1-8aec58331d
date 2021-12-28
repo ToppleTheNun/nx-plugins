@@ -1,5 +1,5 @@
 diff --git a/src/utils/testing-utils/nx-project.js b/src/utils/testing-utils/nx-project.js
-index 7284da90de99a43453af342e2686273b66132738..e2974e7158ed8ab5359312dd252af004fff25cf6 100644
+index 7284da90de99a43453af342e2686273b66132738..2b09064d43656db6a577b5e83d366c5efe6e3198 100644
 --- a/src/utils/testing-utils/nx-project.js
 +++ b/src/utils/testing-utils/nx-project.js
 @@ -10,7 +10,7 @@ const paths_1 = require("./paths");
@@ -11,3 +11,12 @@ index 7284da90de99a43453af342e2686273b66132738..e2974e7158ed8ab5359312dd252af004
  }
  function patchPackageJsonForPlugin(npmPackageName, distPath) {
      const path = (0, paths_1.tmpProjPath)('package.json');
+@@ -35,7 +35,7 @@ exports.uniq = uniq;
+  */
+ function runPackageManagerInstall(silent = true) {
+     const pmc = (0, devkit_1.getPackageManagerCommand)();
+-    const install = (0, child_process_1.execSync)(pmc.install, Object.assign({ cwd: (0, paths_1.tmpProjPath)() }, (silent ? { stdio: ['ignore', 'ignore', 'ignore'] } : {})));
++    const install = (0, child_process_1.execSync)(pmc.install, Object.assign({ cwd: (0, paths_1.tmpProjPath)() }, (silent && false ? { stdio: ['ignore', 'ignore', 'ignore'] } : {})));
+     return install ? install.toString() : '';
+ }
+ exports.runPackageManagerInstall = runPackageManagerInstall;
