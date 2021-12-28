@@ -63,7 +63,7 @@
     "tree-kill": "1.2.2",
     "ts-jest": "27.1.2",
     "tslib": "2.3.1",
-    "typescript": "4.4.4"
+    "typescript": "4.5.4"
   },
   "resolutions": {
     "@nrwl/nx-plugin@13.4.1": "patch:@nrwl/nx-plugin@npm:13.4.1#.yarn/patches/@nrwl-nx-plugin-npm-13.4.1-8aec58331d",
