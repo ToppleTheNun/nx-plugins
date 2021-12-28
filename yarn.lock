@@ -391,7 +391,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@commitlint/cli@npm:^16.0.0":
+"@commitlint/cli@npm:16.0.0":
   version: 16.0.0
   resolution: "@commitlint/cli@npm:16.0.0"
   dependencies:
@@ -410,7 +410,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@commitlint/config-conventional@npm:^16.0.0":
+"@commitlint/config-conventional@npm:16.0.0":
   version: 16.0.0
   resolution: "@commitlint/config-conventional@npm:16.0.0"
   dependencies:
@@ -514,7 +514,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@commitlint/prompt-cli@npm:^16.0.0":
+"@commitlint/prompt-cli@npm:16.0.0":
   version: 16.0.0
   resolution: "@commitlint/prompt-cli@npm:16.0.0"
   dependencies:
@@ -1123,7 +1123,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@nrwl/nx-plugin@npm:^13.4.1":
+"@nrwl/nx-plugin@npm:13.4.1":
   version: 13.4.1
   resolution: "@nrwl/nx-plugin@npm:13.4.1"
   dependencies:
@@ -1136,6 +1136,22 @@ __metadata:
     tslib: ^2.3.0
     yargs: 15.4.1
   checksum: 9acd4edc0a373b88559c9abe356e4a1e3319f1e6fd1c3da5332d118fe5902addbbe9a1da8130b1633867bd39453150660716547a36f52caa9a0190b8728ced8b
+  languageName: node
+  linkType: hard
+
+"@nrwl/nx-plugin@patch:@nrwl/nx-plugin@npm:13.4.1#.yarn/patches/@nrwl-nx-plugin-npm-13.4.1-8aec58331d::locator=nx-plugins%40workspace%3A.":
+  version: 13.4.1
+  resolution: "@nrwl/nx-plugin@patch:@nrwl/nx-plugin@npm%3A13.4.1#.yarn/patches/@nrwl-nx-plugin-npm-13.4.1-8aec58331d::version=13.4.1&hash=fac6c1&locator=nx-plugins%40workspace%3A."
+  dependencies:
+    "@nrwl/devkit": 13.4.1
+    "@nrwl/jest": 13.4.1
+    "@nrwl/linter": 13.4.1
+    "@nrwl/node": 13.4.1
+    fs-extra: ^9.1.0
+    rxjs: ^6.5.4
+    tslib: ^2.3.0
+    yargs: 15.4.1
+  checksum: 2cd380cd3ebe7817c0c340accfbeb0a9c947654e0a9575d5a90e748363b7d9ead1a62a65aeea21b481c5a4a1e1d6a31dde9fffd3f2b2c254e9593228be992578
   languageName: node
   linkType: hard
 
@@ -1274,7 +1290,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@topplethenun/nx-plugin-postcss@workspace:packages/postcss"
   dependencies:
-    "@types/fs-extra": ^9.0.13
+    "@types/fs-extra": 9.0.13
     fs-extra: ^10.0.0
   peerDependencies:
     postcss: ^8.4.5
@@ -1378,7 +1394,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/fs-extra@npm:^9.0.13":
+"@types/fs-extra@npm:9.0.13":
   version: 9.0.13
   resolution: "@types/fs-extra@npm:9.0.13"
   dependencies:
@@ -1528,7 +1544,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@typescript-eslint/eslint-plugin@npm:~5.3.1":
+"@typescript-eslint/eslint-plugin@npm:5.3.1":
   version: 5.3.1
   resolution: "@typescript-eslint/eslint-plugin@npm:5.3.1"
   dependencies:
@@ -1566,7 +1582,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@typescript-eslint/parser@npm:~5.3.1":
+"@typescript-eslint/parser@npm:5.3.1":
   version: 5.3.1
   resolution: "@typescript-eslint/parser@npm:5.3.1"
   dependencies:
@@ -4394,7 +4410,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"husky@npm:^7.0.4":
+"husky@npm:7.0.4":
   version: 7.0.4
   resolution: "husky@npm:7.0.4"
   bin:
@@ -4639,7 +4655,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"is-ci@npm:^3.0.0, is-ci@npm:^3.0.1":
+"is-ci@npm:3.0.1, is-ci@npm:^3.0.0":
   version: 3.0.1
   resolution: "is-ci@npm:3.0.1"
   dependencies:
@@ -6438,9 +6454,9 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "nx-plugins@workspace:."
   dependencies:
-    "@commitlint/cli": ^16.0.0
-    "@commitlint/config-conventional": ^16.0.0
-    "@commitlint/prompt-cli": ^16.0.0
+    "@commitlint/cli": 16.0.0
+    "@commitlint/config-conventional": 16.0.0
+    "@commitlint/prompt-cli": 16.0.0
     "@jscutlery/semver": 2.16.0
     "@nrwl/cli": 13.4.1
     "@nrwl/devkit": 13.4.1
@@ -6448,31 +6464,31 @@ __metadata:
     "@nrwl/jest": 13.4.1
     "@nrwl/linter": 13.4.1
     "@nrwl/node": 13.4.1
-    "@nrwl/nx-plugin": ^13.4.1
+    "@nrwl/nx-plugin": 13.4.1
     "@nrwl/tao": 13.4.1
     "@nrwl/workspace": 13.4.1
     "@types/jest": 27.0.3
     "@types/node": 14.18.3
-    "@typescript-eslint/eslint-plugin": ~5.3.1
-    "@typescript-eslint/parser": ~5.3.1
+    "@typescript-eslint/eslint-plugin": 5.3.1
+    "@typescript-eslint/parser": 5.3.1
     chalk: 4.1.2
     eslint: 8.5.0
     eslint-config-prettier: 8.3.0
-    husky: ^7.0.4
-    is-ci: ^3.0.1
+    husky: 7.0.4
+    is-ci: 3.0.1
     is-windows: 1.0.2
     jest: 27.4.5
     kill-port: 1.6.1
     lint-staged: 12.1.4
     postcss: 8.4.5
     postcss-load-config: 3.1.0
-    prettier: ^2.5.1
-    prettier-plugin-organize-imports: ^2.3.4
-    prettier-plugin-pkg: ^0.11.1
+    prettier: 2.5.1
+    prettier-plugin-organize-imports: 2.3.4
+    prettier-plugin-pkg: 0.11.1
     tree-kill: 1.2.2
     ts-jest: 27.1.2
-    tslib: ^2.0.0
-    typescript: ~4.4.4
+    tslib: 2.3.1
+    typescript: 4.4.4
   languageName: unknown
   linkType: soft
 
@@ -6878,7 +6894,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"prettier-plugin-organize-imports@npm:^2.3.4":
+"prettier-plugin-organize-imports@npm:2.3.4":
   version: 2.3.4
   resolution: "prettier-plugin-organize-imports@npm:2.3.4"
   peerDependencies:
@@ -6888,7 +6904,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"prettier-plugin-pkg@npm:^0.11.1":
+"prettier-plugin-pkg@npm:0.11.1":
   version: 0.11.1
   resolution: "prettier-plugin-pkg@npm:0.11.1"
   peerDependencies:
@@ -6897,7 +6913,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"prettier@npm:^2.5.1":
+"prettier@npm:2.5.1":
   version: 2.5.1
   resolution: "prettier@npm:2.5.1"
   bin:
@@ -8273,17 +8289,17 @@ __metadata:
   languageName: node
   linkType: hard
 
+"tslib@npm:2.3.1, tslib@npm:^2.3.0":
+  version: 2.3.1
+  resolution: "tslib@npm:2.3.1"
+  checksum: de17a98d4614481f7fcb5cd53ffc1aaf8654313be0291e1bfaee4b4bb31a20494b7d218ff2e15017883e8ea9626599b3b0e0229c18383ba9dce89da2adf15cb9
+  languageName: node
+  linkType: hard
+
 "tslib@npm:^1.8.1, tslib@npm:^1.9.0":
   version: 1.14.1
   resolution: "tslib@npm:1.14.1"
   checksum: dbe628ef87f66691d5d2959b3e41b9ca0045c3ee3c7c7b906cc1e328b39f199bb1ad9e671c39025bd56122ac57dfbf7385a94843b1cc07c60a4db74795829acd
-  languageName: node
-  linkType: hard
-
-"tslib@npm:^2.0.0, tslib@npm:^2.3.0":
-  version: 2.3.1
-  resolution: "tslib@npm:2.3.1"
-  checksum: de17a98d4614481f7fcb5cd53ffc1aaf8654313be0291e1bfaee4b4bb31a20494b7d218ff2e15017883e8ea9626599b3b0e0229c18383ba9dce89da2adf15cb9
   languageName: node
   linkType: hard
 
@@ -8381,6 +8397,16 @@ __metadata:
   languageName: node
   linkType: hard
 
+"typescript@npm:4.4.4":
+  version: 4.4.4
+  resolution: "typescript@npm:4.4.4"
+  bin:
+    tsc: bin/tsc
+    tsserver: bin/tsserver
+  checksum: 89ecb8436bb48ef5594d49289f5f89103071716b6e4844278f4fb3362856e31203e187a9c76d205c3f0b674d221a058fd28310dbcbcf5d95e9a57229bb5203f1
+  languageName: node
+  linkType: hard
+
 "typescript@npm:^4.4.3":
   version: 4.5.4
   resolution: "typescript@npm:4.5.4"
@@ -8391,13 +8417,13 @@ __metadata:
   languageName: node
   linkType: hard
 
-"typescript@npm:~4.4.4":
+"typescript@patch:typescript@4.4.4#~builtin<compat/typescript>":
   version: 4.4.4
-  resolution: "typescript@npm:4.4.4"
+  resolution: "typescript@patch:typescript@npm%3A4.4.4#~builtin<compat/typescript>::version=4.4.4&hash=493e53"
   bin:
     tsc: bin/tsc
     tsserver: bin/tsserver
-  checksum: 89ecb8436bb48ef5594d49289f5f89103071716b6e4844278f4fb3362856e31203e187a9c76d205c3f0b674d221a058fd28310dbcbcf5d95e9a57229bb5203f1
+  checksum: bd629ad0da4a15d79aaad56baf3ee7d96f6a181760d430ae77f8c5325df7bffd9edee57544a3970e3651e8b796fe03a5838a7eb39c6d46cc3866c0b23d36a0dd
   languageName: node
   linkType: hard
 
@@ -8408,16 +8434,6 @@ __metadata:
     tsc: bin/tsc
     tsserver: bin/tsserver
   checksum: 2e488dde7d2c4a2fa2e79cf2470600f8ce81bc0563c276b72df8ff412d74456ae532ba824650ae936ce207440c79720ddcfaa25e3cb4477572b8534fa4e34d49
-  languageName: node
-  linkType: hard
-
-"typescript@patch:typescript@~4.4.4#~builtin<compat/typescript>":
-  version: 4.4.4
-  resolution: "typescript@patch:typescript@npm%3A4.4.4#~builtin<compat/typescript>::version=4.4.4&hash=493e53"
-  bin:
-    tsc: bin/tsc
-    tsserver: bin/tsserver
-  checksum: bd629ad0da4a15d79aaad56baf3ee7d96f6a181760d430ae77f8c5325df7bffd9edee57544a3970e3651e8b796fe03a5838a7eb39c6d46cc3866c0b23d36a0dd
   languageName: node
   linkType: hard
 
