@@ -1,0 +1,23 @@
+name: Renovate Config Validator
+on:
+  push:
+    paths:
+      - ".github/renovate.json"
+  pull_request:
+    paths:
+      - ".github/renovate.json"
+
+jobs:
+  validate-renovate-config:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+        name: Checkout [main]
+        with:
+          fetch-depth: 0
+      - name: Derive appropriate SHAs for base and head for `nx affected` commands
+        uses: nrwl/nx-set-shas@v2
+      - uses: actions/setup-node@v2
+        with:
+          node-version: "14"
+      - run: yarn dlx -p renovate renovate-config-validator
