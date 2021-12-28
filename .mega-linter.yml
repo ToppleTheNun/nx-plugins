@@ -7,3 +7,8 @@ DISABLE_LINTERS:
   - TYPESCRIPT_STANDARD
 SHOW_ELAPSED_TIME: true
 FILEIO_REPORTER: false
+EDITORCONFIG_EDITORCONFIG_CHECKER_FILTER_REGEX_EXCLUDE: (.yarn)
+PRE_COMMANDS:
+  - continue_if_failed: false
+    command: yarn install --frozen-lockfile
+    cwd: workspace
