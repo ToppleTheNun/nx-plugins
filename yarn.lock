@@ -951,15 +951,15 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@jscutlery/semver@npm:2.16.0":
-  version: 2.16.0
-  resolution: "@jscutlery/semver@npm:2.16.0"
+"@jscutlery/semver@npm:2.16.1":
+  version: 2.16.1
+  resolution: "@jscutlery/semver@npm:2.16.1"
   dependencies:
     "@nrwl/devkit": ^13.0.2
     inquirer: ^8.2.0
     rxjs: ^7.4.0
     standard-version: ^9.3.2
-  checksum: 108a91c35e446e37220e741c54eea4f995323d7594dd85c8694b96529f66908eb3e1613b6380a732a1630199589c18425fa37cd6874e0e8c403fc21cfc014656
+  checksum: 1343be816005604786d650a9833232591ab57568022f8f46424733b5330326953168ba59545cb4e963c30973e95f58842eff9d54186862a9dff0b2b5354ebf72
   languageName: node
   linkType: hard
 
@@ -6518,7 +6518,7 @@ __metadata:
     "@commitlint/cli": 16.0.1
     "@commitlint/config-conventional": 16.0.0
     "@commitlint/prompt-cli": 16.0.0
-    "@jscutlery/semver": 2.16.0
+    "@jscutlery/semver": 2.16.1
     "@nrwl/cli": 13.4.1
     "@nrwl/devkit": 13.4.1
     "@nrwl/eslint-plugin-nx": 13.4.1
