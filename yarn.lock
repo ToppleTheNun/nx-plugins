@@ -410,19 +410,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@commitlint/config-angular-type-enum@npm:^15.0.0":
-  version: 15.0.0
-  resolution: "@commitlint/config-angular-type-enum@npm:15.0.0"
-  checksum: dc5b8774c5cff7de00136c22c98aa1a9fc4cd46b384cd37d3164054f99f0fdf5aa9cb97714ed205f0200f1fe2201eff9a8a094fb87962466b63ea012a41b16d0
-  languageName: node
-  linkType: hard
-
-"@commitlint/config-angular@npm:^15.0.0":
-  version: 15.0.0
-  resolution: "@commitlint/config-angular@npm:15.0.0"
+"@commitlint/config-conventional@npm:^16.0.0":
+  version: 16.0.0
+  resolution: "@commitlint/config-conventional@npm:16.0.0"
   dependencies:
-    "@commitlint/config-angular-type-enum": ^15.0.0
-  checksum: 001327b11081ac3645ebeb30af5aa48e8558d1c561a3d209ee302818419d12b2a5c544e50c926550db7c0b739bead6935beab261cf33ceb6058b33ca7feb6de9
+    conventional-changelog-conventionalcommits: ^4.3.1
+  checksum: a0c923c506eed8b460503247efcecb64f7376c0fcfd9a05330651334d2b0b38a41db2698b1886198ec1e71bcf67dad4e190253e684a3cb668c7cfc76e9e959d5
   languageName: node
   linkType: hard
 
@@ -2761,7 +2754,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"conventional-changelog-conventionalcommits@npm:^4.5.0":
+"conventional-changelog-conventionalcommits@npm:^4.3.1, conventional-changelog-conventionalcommits@npm:^4.5.0":
   version: 4.6.2
   resolution: "conventional-changelog-conventionalcommits@npm:4.6.2"
   dependencies:
@@ -6321,7 +6314,7 @@ __metadata:
   resolution: "nx-plugins@workspace:."
   dependencies:
     "@commitlint/cli": ^15.0.0
-    "@commitlint/config-angular": ^15.0.0
+    "@commitlint/config-conventional": ^16.0.0
     "@commitlint/prompt-cli": ^16.0.0
     "@jscutlery/semver": 2.16.0
     "@nrwl/cli": 13.4.1
