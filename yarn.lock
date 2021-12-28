@@ -1229,7 +1229,7 @@ __metadata:
 
 "@nrwl/tao@patch:@nrwl/tao@npm:13.4.1#.yarn/patches/@nrwl-tao-npm-13.4.1-5347a26cf9::locator=nx-plugins%40workspace%3A.":
   version: 13.4.1
-  resolution: "@nrwl/tao@patch:@nrwl/tao@npm%3A13.4.1#.yarn/patches/@nrwl-tao-npm-13.4.1-5347a26cf9::version=13.4.1&hash=612ba0&locator=nx-plugins%40workspace%3A."
+  resolution: "@nrwl/tao@patch:@nrwl/tao@npm%3A13.4.1#.yarn/patches/@nrwl-tao-npm-13.4.1-5347a26cf9::version=13.4.1&hash=fc1e81&locator=nx-plugins%40workspace%3A."
   dependencies:
     chalk: 4.1.0
     enquirer: ~2.3.6
@@ -1246,7 +1246,7 @@ __metadata:
     yargs-parser: 20.0.0
   bin:
     tao: index.js
-  checksum: 4a0617cbe3b2e1c7bc60c4f7416d9d9934a88b19ee73306a34cacece82b9bdbae0f173e5ce32a410bb766f74c434fe02d0ebc0359d7e501a33801c2e33db0a7a
+  checksum: 6793375122c47070659f954cb3aca1e8b1b7564b9ecc30ec0385cf8562bf5a726337b40d257c7a62a944b55b7854c501973a3e7c49f17e6dc2158b4f7bcfc5eb
   languageName: node
   linkType: hard
 
