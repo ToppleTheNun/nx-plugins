@@ -20,7 +20,7 @@ jobs:
       - uses: actions/setup-node@v2
         with:
           node-version: "14"
-      - uses: c-hive/gha-yarn-cache@v2
+      - uses: bahmutov/npm-install@v1
       - run: yarn install --frozen-lockfile
       - run: yarn affected:build --parallel --max-parallel=3
       - run: yarn affected:test --parallel --max-parallel=2
@@ -38,7 +38,7 @@ jobs:
       - uses: actions/setup-node@v2
         with:
           node-version: "14"
-      - uses: c-hive/gha-yarn-cache@v2
+      - uses: bahmutov/npm-install@v1
       - run: yarn install --frozen-lockfile
       - run: yarn dlx commitlint --from ${{ env.NX_BASE }} --to ${{ env.NX_HEAD }}
       - run: yarn affected:build --parallel --max-parallel=3

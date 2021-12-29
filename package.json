@@ -15,8 +15,9 @@
     "affected:libs": "nx affected:libs",
     "affected:lint": "nx affected:lint",
     "affected:test": "nx affected:test",
-    "all:build": "npx nx run-many --target build --all --parallel=5",
-    "all:test": "npx nx run-many --target test --all --parallel=5",
+    "all:build": "npx nx run-many --target build --all --parallel=3",
+    "all:e2e": "npx nx run-many --target e2e --all --parallel=1",
+    "all:test": "npx nx run-many --target test --all --parallel=2",
     "build": "nx build",
     "commit": "commit",
     "dep-graph": "nx dep-graph",
@@ -24,9 +25,6 @@
     "postinstall": "husky install",
     "start": "nx serve",
     "test": "nx test"
-  },
-  "dependencies": {
-    "tslib": "^2.0.0"
   },
   "devDependencies": {
     "@commitlint/cli": "16.0.1",
