@@ -1,19 +1,33 @@
-import { readProjectConfiguration, Tree } from "@nrwl/devkit";
+import { Tree } from "@nrwl/devkit";
 import { createTreeWithEmptyWorkspace } from "@nrwl/devkit/testing";
-import generator from "./generator";
-import { LibraryGeneratorSchema } from "./schema";
+import libraryGenerator from "./library";
 
-describe("library generator", () => {
-  let appTree: Tree;
-  const options: LibraryGeneratorSchema = { name: "test" };
+describe("@topplethenun/nx-plugin-postcss:library", () => {
+  let tree: Tree;
 
-  beforeEach(() => {
-    appTree = createTreeWithEmptyWorkspace();
+  beforeEach(async () => {
+    tree = createTreeWithEmptyWorkspace();
   });
 
-  it("should run successfully", async () => {
-    await generator(appTree, options);
-    const config = readProjectConfiguration(appTree, "test");
-    expect(config).toBeDefined();
+  it("should generate files", async () => {
+    await libraryGenerator(tree, {
+      name: "test-ui-lib",
+    });
+    expect(tree.exists("libs/test-ui-lib/postcss.config.js")).toBeTruthy();
+    expect(tree.exists("libs/test-ui-lib/.babelrc")).toBeFalsy();
+    expect(tree.exists("libs/test-ui-lib/.eslintrc")).toBeFalsy();
+    expect(tree.exists("libs/test-ui-lib/package.json")).toBeFalsy();
+  });
+
+  it("generates a package.json when publishable", async () => {
+    await libraryGenerator(tree, {
+      name: "test-ui-lib",
+      importPath: "@topplethenun/test-ui-lib",
+      publishable: true,
+    });
+    expect(tree.exists("libs/test-ui-lib/postcss.config.js")).toBeTruthy();
+    expect(tree.exists("libs/test-ui-lib/.babelrc")).toBeFalsy();
+    expect(tree.exists("libs/test-ui-lib/.eslintrc")).toBeFalsy();
+    expect(tree.exists("libs/test-ui-lib/package.json")).toBeTruthy();
   });
 });

@@ -34,10 +34,9 @@ describe("@topplethenun/nx-plugin-postcss:configuration", () => {
       const packageJson = readJson(tree, "package.json");
       expect(packageJson).toMatchSnapshot();
 
-      expect(packageJson.devDependencies["postcss"]).toBeDefined();
-      expect(packageJson.devDependencies["postcss"]).toEqual("^8.4.5");
+      expect(packageJson.devDependencies["postcss"]).toEqual("^8.0.0");
       expect(packageJson.devDependencies["postcss-preset-env"]).toEqual(
-        "^7.0.1"
+        "^7.0.0"
       );
     });
 
@@ -55,9 +54,28 @@ describe("@topplethenun/nx-plugin-postcss:configuration", () => {
       const packageJson = readJson(tree, "package.json");
       expect(packageJson).toMatchSnapshot();
 
-      expect(packageJson.devDependencies["postcss"]).toBeDefined();
       expect(packageJson.devDependencies["postcss"]).toEqual("7");
-      expect(packageJson.devDependencies["postcss-preset-env"]).toBeUndefined();
+      expect(packageJson.devDependencies["postcss-preset-env"]).toEqual(
+        "^7.0.0"
+      );
+    });
+
+    it("does not add postcss-preset-env if already present", async () => {
+      const existing = "existing";
+      const existingVersion = "1.0.0";
+      addDependenciesToPackageJson(
+        tree,
+        { [existing]: existingVersion },
+        { "postcss-preset-env": "7", [existing]: existingVersion }
+      );
+
+      await configurationGenerator(tree, { project: "test-ui-lib" });
+
+      const packageJson = readJson(tree, "package.json");
+      expect(packageJson).toMatchSnapshot();
+
+      expect(packageJson.devDependencies["postcss"]).toEqual("^8.0.0");
+      expect(packageJson.devDependencies["postcss-preset-env"]).toEqual("7");
     });
   });
 
@@ -77,10 +95,13 @@ describe("@topplethenun/nx-plugin-postcss:configuration", () => {
       executor: "@topplethenun/nx-plugin-postcss:package",
       outputs: ["{options.outputPath}"],
       options: {
-        outputPath: "dist/libs/test-ui-lib",
+        outputPath: "dist/libs/test-ui-lib/dist",
         packageJson: "libs/test-ui-lib/package.json",
         main: "libs/test-ui-lib/src/index.css",
-        assets: ["libs/test-ui-lib/*.md"],
+        assets: [
+          "libs/test-ui-lib/*.md",
+          { glob: "**/*", input: "libs/test-ui-lib/src", output: "./src" },
+        ],
       },
     });
   });
