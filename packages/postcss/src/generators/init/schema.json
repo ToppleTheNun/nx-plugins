@@ -1,9 +1,0 @@
-{
-  "$schema": "http://json-schema.org/schema",
-  "cli": "nx",
-  "$id": "init-postcss-plugin",
-  "title": "Add PostCSS configuration to the workspace (add dependencies)",
-  "type": "object",
-  "properties": {},
-  "required": []
-}

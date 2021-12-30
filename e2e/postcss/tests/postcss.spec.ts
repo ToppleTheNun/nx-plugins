@@ -14,10 +14,10 @@ describe("PostCSS", () => {
   );
 
   it("creates postcss.config.js", async () => {
-    const mylib = uniq("mylib");
+    const mylib = uniq("generator-configuration");
     await runNxCommandAsync(`generate @nrwl/workspace:lib ${mylib}`);
     await runNxCommandAsync(
-      `generate @topplethenun/nx-plugin-postcss:configuration ${mylib}`
+      `generate @topplethenun/nx-plugin-postcss:configuration --project ${mylib}`
     );
 
     expect(() => {

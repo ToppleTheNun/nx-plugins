@@ -1,4 +1,9 @@
-import { readProjectConfiguration, Tree } from "@nrwl/devkit";
+import {
+  addDependenciesToPackageJson,
+  readJson,
+  readProjectConfiguration,
+  Tree,
+} from "@nrwl/devkit";
 import { createTreeWithEmptyWorkspace } from "@nrwl/devkit/testing";
 import { libraryGenerator } from "@nrwl/workspace/generators";
 import configurationGenerator from "./configuration";
@@ -14,62 +19,69 @@ describe("@topplethenun/nx-plugin-postcss:configuration", () => {
     });
   });
 
+  describe("dependencies for package.json", () => {
+    it("adds postcss if not already present", async () => {
+      const existing = "existing";
+      const existingVersion = "1.0.0";
+      addDependenciesToPackageJson(
+        tree,
+        { [existing]: existingVersion },
+        { [existing]: existingVersion }
+      );
+
+      await configurationGenerator(tree, { project: "test-ui-lib" });
+
+      const packageJson = readJson(tree, "package.json");
+      expect(packageJson).toMatchSnapshot();
+
+      expect(packageJson.devDependencies["postcss"]).toBeDefined();
+      expect(packageJson.devDependencies["postcss"]).toEqual("^8.4.5");
+      expect(packageJson.devDependencies["postcss-preset-env"]).toEqual(
+        "^7.0.1"
+      );
+    });
+
+    it("does not add postcss if already present", async () => {
+      const existing = "existing";
+      const existingVersion = "1.0.0";
+      addDependenciesToPackageJson(
+        tree,
+        { [existing]: existingVersion },
+        { postcss: "7", [existing]: existingVersion }
+      );
+
+      await configurationGenerator(tree, { project: "test-ui-lib" });
+
+      const packageJson = readJson(tree, "package.json");
+      expect(packageJson).toMatchSnapshot();
+
+      expect(packageJson.devDependencies["postcss"]).toBeDefined();
+      expect(packageJson.devDependencies["postcss"]).toEqual("7");
+      expect(packageJson.devDependencies["postcss-preset-env"]).toBeUndefined();
+    });
+  });
+
   it("should generate files", async () => {
-    await configurationGenerator(tree, { name: "test-ui-lib" });
+    await configurationGenerator(tree, { project: "test-ui-lib" });
 
     expect(tree.exists("libs/test-ui-lib/postcss.config.js")).toBeTruthy();
   });
 
-  describe("is publishable", () => {
-    it("should update workspace file", async () => {
-      await configurationGenerator(tree, {
-        name: "test-ui-lib",
-        publishable: true,
-      });
-      const project = readProjectConfiguration(tree, "test-ui-lib");
-
-      expect(project.targets.build).toEqual({
-        executor: "@topplethenun/nx-plugin-postcss:package",
-        outputs: ["{options.outputPath}"],
-        options: {
-          outputPath: "dist/libs/test-ui-lib",
-          packageJson: "libs/test-ui-lib/package.json",
-          main: "libs/test-ui-lib/src/index.css",
-          assets: ["libs/test-ui-lib/*.md"],
-        },
-      });
+  it("should update workspace file", async () => {
+    await configurationGenerator(tree, {
+      project: "test-ui-lib",
     });
-  });
+    const project = readProjectConfiguration(tree, "test-ui-lib");
 
-  describe("is buildable", () => {
-    it("should update workspace file", async () => {
-      await configurationGenerator(tree, {
-        name: "test-ui-lib",
-        buildable: true,
-      });
-      const project = readProjectConfiguration(tree, "test-ui-lib");
-
-      expect(project.targets.build).toEqual({
-        executor: "@topplethenun/nx-plugin-postcss:package",
-        outputs: ["{options.outputPath}"],
-        options: {
-          outputPath: "dist/libs/test-ui-lib",
-          packageJson: "libs/test-ui-lib/package.json",
-          main: "libs/test-ui-lib/src/index.css",
-          assets: ["libs/test-ui-lib/*.md"],
-        },
-      });
-    });
-  });
-
-  describe("is not buildable and not publishable", () => {
-    it("should not update workspace file", async () => {
-      await configurationGenerator(tree, {
-        name: "test-ui-lib",
-      });
-      const project = readProjectConfiguration(tree, "test-ui-lib");
-
-      expect(project.targets.build).toBeUndefined();
+    expect(project.targets.build).toEqual({
+      executor: "@topplethenun/nx-plugin-postcss:package",
+      outputs: ["{options.outputPath}"],
+      options: {
+        outputPath: "dist/libs/test-ui-lib",
+        packageJson: "libs/test-ui-lib/package.json",
+        main: "libs/test-ui-lib/src/index.css",
+        assets: ["libs/test-ui-lib/*.md"],
+      },
     });
   });
 });
