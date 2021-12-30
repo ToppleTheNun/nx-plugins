@@ -31,12 +31,12 @@ function updateProject(tree: Tree, options: Schema) {
   const projectConfig = readProjectConfiguration(tree, options.project);
   const { libsDir } = getWorkspaceLayout(tree);
 
-  projectConfig.targets = projectConfig.targets || {};
+  projectConfig.targets = projectConfig.targets ?? {};
   projectConfig.targets.build = {
     executor: "@topplethenun/nx-plugin-postcss:package",
     outputs: ["{options.outputPath}"],
     options: {
-      outputPath: `dist/${libsDir}/${options.project}`,
+      outputPath: `dist/${libsDir}/${options.project}/dist`,
       packageJson: joinPathFragments(
         normalizePath(projectConfig.root),
         "package.json"
@@ -46,7 +46,14 @@ function updateProject(tree: Tree, options: Schema) {
         "src",
         "index.css"
       ),
-      assets: [joinPathFragments(normalizePath(projectConfig.root), "*.md")],
+      assets: [
+        joinPathFragments(normalizePath(projectConfig.root), "*.md"),
+        {
+          input: joinPathFragments(normalizePath(projectConfig.root), "src"),
+          glob: "**/*",
+          output: "./src",
+        },
+      ],
     },
   };
 

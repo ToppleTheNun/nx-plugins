@@ -84,6 +84,11 @@ function createFiles(tree: Tree, options: NormalizedSchema) {
   );
   tree.delete(join(options.projectRoot, `./src/lib/${options.fileName}.ts`));
   tree.delete(join(options.projectRoot, "./src/index.ts"));
+  tree.delete(join(options.projectRoot, "./.eslintrc.json"));
+  tree.delete(join(options.projectRoot, "./jest.config.js"));
+  tree.delete(join(options.projectRoot, "./tsconfig.json"));
+  tree.delete(join(options.projectRoot, "./tsconfig.lib.json"));
+  tree.delete(join(options.projectRoot, "./tsconfig.spec.json"));
   if (!options.publishable && !options.buildable) {
     tree.delete(join(options.projectRoot, "package.json"));
   }
@@ -95,26 +100,10 @@ function updateProject(tree: Tree, options: NormalizedSchema) {
   }
 
   const project = readProjectConfiguration(tree, options.name);
-  const { libsDir } = getWorkspaceLayout(tree);
 
   project.targets = project.targets || {};
-  project.targets.build = {
-    executor: "@topplethenun/nx-plugin-postcss:package",
-    outputs: ["{options.outputPath}"],
-    options: {
-      outputPath: `dist/${libsDir}/${options.projectDirectory}`,
-      packageJson: `${options.projectRoot}/package.json`,
-      main: `${options.projectRoot}/src/index.css`,
-      assets: [
-        `${options.projectRoot}/*.md`,
-        {
-          input: "./packages/postcss/src",
-          glob: "**/!(*.ts)",
-          output: "./src",
-        },
-      ],
-    },
-  };
+  delete project.targets.lint;
+  delete project.targets.test;
 
   updateProjectConfiguration(tree, options.name, project);
 }
