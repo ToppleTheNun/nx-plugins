@@ -1,0 +1,15 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`PostCSS can build a CSS file 1`] = `
+"::-moz-placeholder {
+  color: red;
+}
+:-ms-input-placeholder {
+  color: red;
+}
+::placeholder {
+  color: red;
+}
+
+/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi4uLy4uLy4uLy4uL2xpYnMvZXhlY3V0b3ItYnVpbGQ3MjgwOTk1L3NyYy9pbmRleC5jc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7RUFDRSxVQUFVO0FBQ1o7QUFGQTtFQUNFLFVBQVU7QUFDWjtBQUZBO0VBQ0UsVUFBVTtBQUNaIiwiZmlsZSI6ImluZGV4LmNzcyIsInNvdXJjZXNDb250ZW50IjpbIjo6cGxhY2Vob2xkZXIge1xuICBjb2xvcjogcmVkO1xufVxuIl19 */"
+`;

@@ -40,7 +40,7 @@ jobs:
           node-version: "14"
       - uses: bahmutov/npm-install@v1
       - run: yarn install --frozen-lockfile
-      - run: yarn dlx commitlint --from ${{ env.NX_BASE }} --to ${{ env.NX_HEAD }}
+      - run: yarn commitlint --from ${{ env.NX_BASE }} --to ${{ env.NX_HEAD }}
       - run: yarn affected:build --parallel --max-parallel=3
       - run: yarn affected:test --parallel --max-parallel=2
       - run: yarn affected:e2e
